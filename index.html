@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Unsung Scripters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Georgia', serif;
+        background: linear-gradient(to bottom right, #0a0a0a, #1a1a1a);
+        color: #f5f5f5;
+      }
+
+      .fade-in {
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      input, textarea {
+        background-color: #1f1f1f;
+        color: #f5f5f5;
+      }
+
+      input:focus, textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #facc15;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col justify-between px-6 md:px-20 py-12">
+
+    <!-- Hero Section -->
+    <section class="fade-in text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 mb-4">The Unsung Scripters</h1>
+      <p class="text-xl max-w-2xl mx-auto text-gray-300">We craft untold stories, hidden scripts, and narratives that the world needs to hear. Ghostwriters of the bold. Architects of the unheard.</p>
+    </section>
+
+    <!-- Main Content and Form -->
+    <section class="flex flex-col md:flex-row justify-between items-start gap-12 fade-in">
+      <!-- Quotes -->
+      <div class="flex-1 space-y-6">
+        <blockquote class="border-l-4 border-yellow-400 pl-4 italic text-gray-400">
+          "The most powerful stories are often the ones never told."
+        </blockquote>
+        <blockquote class="border-l-4 border-yellow-400 pl-4 italic text-gray-400">
+          "Our words carry the weight of the unseen, the unheard, the unforgettable."
+        </blockquote>
+        <p class="text-gray-300 mt-6">
+          Whether it's a film script, a brand story, or a speech for your next big moment — we stay in the shadows, so your story can shine.
+        </p>
+      </div>
+
+      <!-- Inquiry Form -->
+      <form id="inquiryForm" class="flex-1 bg-[#111] p-6 rounded-lg shadow-lg space-y-4 w-full max-w-md relative">
+        <h2 class="text-2xl font-semibold text-yellow-300 mb-2">Ask us anything</h2>
+        <input type="text" placeholder="Your Name" class="w-full p-3 rounded" required />
+        <input type="email" placeholder="Your Email" class="w-full p-3 rounded" required />
+        <textarea rows="4" placeholder="Your Message" class="w-full p-3 rounded" required></textarea>
+        <button type="submit" class="bg-yellow-400 text-black font-semibold py-2 px-6 rounded hover:bg-yellow-300 transition-all">
+          Send
+        </button>
+      
+        <!-- Pop-up card -->
+        <div id="popupCard" class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-yellow-300 text-black text-center py-3 px-6 rounded-lg shadow-xl opacity-0 pointer-events-none transition-all duration-500">
+          Your query has been sent!
+        </div>
+      </form>
+      
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center text-gray-500 text-sm fade-in">
+      <p>© The Unsung Scripters 2025</p>
+    </footer>
+
+    <!-- Optional JS Animation Trigger -->
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+      
+          const popup = document.getElementById('popupCard');
+          popup.classList.remove('opacity-0', 'pointer-events-none');
+          popup.classList.add('opacity-100');
+      
+          setTimeout(() => {
+            popup.classList.add('opacity-0');
+            popup.classList.remove('opacity-100');
+          }, 3000);
+          
+          // Optionally reset form:
+          this.reset();
+        });
+      </script>
+      
+  </body>
+</html>
